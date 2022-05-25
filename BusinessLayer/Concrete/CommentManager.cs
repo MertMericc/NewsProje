@@ -20,22 +20,22 @@ namespace BusinessLayer.Concrete
 
         public void TAdd(Comment t)
         {
-            throw new NotImplementedException();
+            _commentRepository.Insert(t);
         }
 
         public void TDelete(Comment t)
         {
-            throw new NotImplementedException();
+            _commentRepository.Delete(t);
         }
 
         public Comment TGetByID(int id)
         {
-            throw new NotImplementedException();
+            return _commentRepository.GetByID(id);
         }
 
         public List<Comment> TGetList()
         {
-            throw new NotImplementedException();
+            return _commentRepository.GetList();
         }
 
         public List<Comment> TGetListByWhere(string p)
@@ -45,7 +45,7 @@ namespace BusinessLayer.Concrete
 
         public void TUpdate(Comment t)
         {
-            throw new NotImplementedException();
+            _commentRepository.Update(t);
         }
     }
 }

@@ -12,6 +12,7 @@ namespace NewsBlog.Controllers
     public class CommentController : Controller
     {
         CommentManager commentManager = new CommentManager(new CommentRepository());
+        
         public IActionResult AddComment()
         {
             return View();
@@ -20,6 +21,19 @@ namespace NewsBlog.Controllers
         public IActionResult AddComment(Comment p)
         {
             
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Comment(Comment p)
+        {
+            if (User.Identity.IsAuthenticated)
+
+            {
+                commentManager.TAdd(p);
+                return RedirectToAction("New", "NewDetails");
+                    
+            }
             return View();
         }
     }
